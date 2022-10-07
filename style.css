@@ -15,18 +15,6 @@ body{
   display: grid;
 }
 
-header{
-  margin: auto;
-  line-height: 1.5;
-}
-
-header figure{
-  width: 100%;
-  padding: 0;
-  margin-left: 0;
-  
-}
-
 h1, h2, h3, nav a, nav span, figcaption, menu li, #social li, footer{
   font-family: 'Bebas Neue', cursive;
 }
@@ -38,7 +26,7 @@ nav a, nav span, figcaption, menu li, #social li, footer {
   font-size: 20px;
 }
 
-nav h2, [href="home"] figcaption, dd figcaption, #details span, aside span, form h3, footer h2, footer h3 {
+nav h2, [href="#home"] figcaption, dd figcaption, #details span, aside span, form h3, footer h2, footer h3 {
   visibility: hidden;
   position: absolute; 
 }
@@ -53,7 +41,6 @@ main ul{
 
 main section li{
   margin: 20px;
-  line-height: 1.5;
 }
 
 main > section, p{
@@ -102,6 +89,12 @@ img{
 
 
 
+menu li, menu a, nav figure, #social a, nav [for="dropdown"]{
+  display: flex;
+  align-items: center;
+  flex-direction: column-reverse;
+}
+
 menu li:hover{
   cursor: pointer;
 }
@@ -133,16 +126,13 @@ menu li:hover span, #social a:hover span, nav a:hover {
   color: white;
 }
 nav{
-  width: 414px;
   position: relative;
   grid-row: 1/2;
-  background-color: #ffffff;
 }
 
 nav ul{
   background-color: #ffffff;
   width: 414px;
-  height: 0px;
   max-height: 0;
   transition: max-height 0.2s ease-out;
   list-style: none;
@@ -219,12 +209,6 @@ nav li:last-child {
 
 nav figure, nav [for="dropdown"]{
   justify-content: flex-end;
-}
-
-menu li, menu a, nav figure, #social a, nav [for="dropdown"]{
-  display: flex;
-  align-items: center;
-  flex-direction: column-reverse;
 }
 
 
