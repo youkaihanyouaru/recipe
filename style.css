@@ -1,4 +1,8 @@
 @import url(https://fonts.google.com/share?selection.family=Bebas%20Neue%7CMontserrat:ital,wght@0,400;0,700;1,400);
+*{
+  margin: 0;
+  padding: 0;
+}
 
 html{
   background-color: rgba(122, 191, 191, 0.5);
@@ -26,7 +30,7 @@ header figure{
 h1, h2, h3, nav a, nav span, figcaption, menu li, #social li, footer{
   font-family: 'Bebas Neue', cursive;
 }
-p, dt, dd, li, nav, input{
+p, dt, dd, li, nav, input, ::placeholder{
   font-family: 'Montserrat', sans-serif;
   font-size: 16px;
 }
@@ -34,7 +38,7 @@ nav a, nav span, figcaption, menu li, #social li, footer {
   font-size: 20px;
 }
 
-nav h2, [href="home"] figcaption, #details span, form h3, footer h2, footer h3 {
+nav h2, [href="home"] figcaption, dd figcaption, #details span, aside span, form h3, footer h2, footer h3 {
   visibility: hidden;
   position: absolute; 
 }
@@ -97,6 +101,37 @@ img{
 
 
 
+
+menu li:hover{
+  cursor: pointer;
+}
+
+menu{
+  padding: 0 10px;
+}
+
+menu, nav ul, #social ul{
+  list-style: none
+}
+
+menu, #social ul{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin-bottom: 10px;
+}
+
+menu li, menu a, #social a{
+  margin: 0;
+}
+
+menu li, menu a, nav a, #social a{
+  color: #eb5428;
+}
+
+menu li:hover span, #social a:hover span, nav a:hover {
+  background-color: #eb5428;
+  color: white;
+}
 nav{
   width: 414px;
   position: relative;
@@ -108,10 +143,13 @@ nav ul{
   background-color: #ffffff;
   width: 414px;
   height: 0px;
+  max-height: 0;
+  transition: max-height 0.2s ease-out;
   list-style: none;
   position: fixed;
   overflow: hidden;
   padding-top: 75px;
+  box-shadow: 0 1.5px 5px #949494;
 }
 
 nav li a {
@@ -119,11 +157,15 @@ nav li a {
   padding: 15px;
 }
 
-nav img, nav > input{
+nav > input{
   display: none;
 }
 
-nav input checked ~ ul{
+nav img{
+  display: none;
+}
+
+nav input:checked ~ ul{
   max-height: 500px;
 }
 
@@ -153,7 +195,7 @@ nav li:first-child {
 
 nav li:last-child {
     right: 0;
-    width: 75px;
+    width: 90px;
 }
 
 [href="#home"], [href="#signIn"] {
@@ -161,6 +203,10 @@ nav li:last-child {
   display: block;
   height: 100%;
   padding: 10px 0 0;
+}
+
+[href="#signIn"] svg{
+  stroke: #ffffff;
 }
 
 [href="#signIn"]:hover, [href="#home"] {
@@ -181,52 +227,30 @@ menu li, menu a, nav figure, #social a, nav [for="dropdown"]{
   flex-direction: column-reverse;
 }
 
-menu li:hover{
-  cursor: pointer;
-}
-
-menu{
-  padding: 0 10px;
-}
-
-menu, nav ul, #social ul{
-  list-style: none
-}
-
-menu, #social ul{
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-}
-
-menu li, menu a, nav a, #social a{
-  color: #eb5428;
-}
-
-menu li:hover span, #social a:hover span, nav a:hover {
-  background-color: #eb5428;
-  color: white;
-}
-
 
 
 
 form{
   width: 300px;
   height: 40px;
-  margin: auto;
+  margin: 100px auto 30px;
   display: grid;
   grid-template-columns: 85% 15%;
 }
-#search-bar input, #search-bar button {
+#searchBar input, #searchBar button {
     display: inline-block;
     height: 100%;
     border: 3px solid #eb5428;
 }
-#search-bar input {
+#searchBar input {
     padding-left: 5px;
 }
-#search-bar button {
+#searchBar button {
     background-color: #eb5428;
+}
+
+#searchBar svg{
+  stroke: #ffffff;
 }
 
 
@@ -234,6 +258,14 @@ form{
 aside{
   background-color: #7abfbf;
   padding-bottom: 0;
+}
+
+aside h2{
+  margin-bottom: 30px;
+}
+
+aside section{
+  margin-top: 10px;
 }
 
 aside a{
@@ -283,6 +315,7 @@ footer{
 footer small{
   position: absolute;
   left: 150px;
+  bottom: 0;
 }
 
 footer figure{
@@ -295,6 +328,7 @@ footer [src="images/taco-cheesington.png"]{
   display: block;
   width: 50%;
   left: 150px;
+  margin: 0 auto;
 }
 
 
@@ -369,7 +403,7 @@ footer [src="images/taco-cheesington.png"]{
       padding: 0;
     }
   
-    [for="dropdown"] > nav input {
+    [for="dropdown"] > *, nav input {
         display: none;
     }
   
@@ -416,7 +450,7 @@ footer [src="images/taco-cheesington.png"]{
 
 @media screen and (min-width:1280px) {
    
-  body, header, nav, nav ul {
+  body, nav ul {
     width: 1280px;
   }
   
@@ -479,6 +513,7 @@ footer [src="images/taco-cheesington.png"]{
   
   aside img{
     margin-bottom: 20px;
+    order: -1;
   }
   
   aside p {
@@ -490,6 +525,7 @@ footer [src="images/taco-cheesington.png"]{
     grid-template-columns: 1fr;
     width: auto;
     height: auto;
+    margin: 0;
     align-content: start;
     border: 2px solid #eb5428;
     background-color: #ffffff;
@@ -501,7 +537,6 @@ footer [src="images/taco-cheesington.png"]{
   
   nav ul {
     padding: 0;
-    margin-top: -75px;
     max-height: 120px;
     grid-template-columns: repeat(7, 120px);
     justify-content: center;
