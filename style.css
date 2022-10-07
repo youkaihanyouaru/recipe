@@ -135,7 +135,6 @@ nav ul{
   width: 414px;
   max-height: 0;
   transition: max-height 0.2s ease-out;
-  list-style: none;
   position: fixed;
   overflow: hidden;
   padding-top: 75px;
@@ -166,7 +165,6 @@ nav input:checked ~ ul{
 
 [for="dropdown"] {
   cursor: pointer;
-  display: block;
   position: fixed;
   width: 100px;
   padding: 10px 0 0;
@@ -195,10 +193,12 @@ nav li:last-child {
   padding: 10px 0 0;
 }
 
-[href="#signIn"] svg{
+[href*="#signIn"] svg{
+  stroke: #eb5428;
+}
+[href="#signIn"]:hover svg{
   stroke: #ffffff;
 }
-
 [href="#signIn"]:hover, [href="#home"] {
     background-color: #eb5428;
 }
@@ -267,6 +267,10 @@ aside a:hover{
   background-color: orange;
 }
 
+aside dt{
+  margin-bottom: 5px;
+}
+
 aside a img {
     grid-column: 1/2;
     grid-row: 1/5;
@@ -311,7 +315,6 @@ footer figure{
 footer [src="images/taco-cheesington.png"]{
   display: block;
   width: 50%;
-  left: 150px;
   margin: 0 auto;
 }
 
@@ -331,7 +334,6 @@ footer [src="images/taco-cheesington.png"]{
   
   header figure {
     position: relative;
-    margin-top: -10px;
   }
   main {
      display: grid;
@@ -384,7 +386,6 @@ footer [src="images/taco-cheesington.png"]{
        grid-template-columns: repeat(7, 1fr);
        z-index: 2;
        max-height: 150px;    
-      padding: 0;
     }
   
     [for="dropdown"] > *, nav input {
